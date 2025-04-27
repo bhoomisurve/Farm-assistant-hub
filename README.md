@@ -1,51 +1,27 @@
-Farm Assistant Hub 🌾
-Farm Assistant Hub is a smart agriculture support system designed for farmers and agriculture enthusiasts. It leverages AI and weather data to provide crop consultation, disease detection, crop disease risk assessment, and a community forum — all through a friendly web interface.
+# 🌾 Farm Assistant Hub
 
-This repository includes both the backend (Flask API) and frontend (UI files).
+Farm Assistant Hub is a smart agriculture platform that helps farmers **predict crop disease risks**, **consult AI experts**, **detect plant diseases from images**, and **engage with a farming community** — all in one place!
 
-🔥 Features
-🎯 AI Farm Consultant ("Plantie"): Smart, conversational farming advice using Google Gemini AI.
+This repository includes both the **backend (Flask API)** and **frontend (HTML/CSS UI)** of the platform.
 
-📸 Crop Disease Detection: Upload images to detect crop diseases with AI.
+---
 
-🌦 Indian Crop Disease Risk Assessment: Predict disease risks based on real-time weather data.
+## ✨ Features
 
-📝 Community Forum: Users can register, post farming queries, comment, and like posts.
+- **AI Farm Consultant ("Plantie")** – Smart chatbot for crop advice (powered by Google Gemini).
+- **Crop Disease Risk Analysis** – Predict disease risks using weather data across India.
+- **Smart Disease Detection** – Upload images and detect plant diseases instantly.
+- **Community Forum** – Farmers can post, like, and comment on agricultural topics.
+- **Speech-to-Text** – Audio crop problems? Convert them directly into text.
+- **Multilingual Support** – Translator for communicating in regional languages.
+- **Authentication System** – Secure login/register functionality.
+- **MongoDB Database** – For storing users, posts, comments, and more.
 
-🌎 Multilingual Translator: Communicate in your preferred language.
-
-🔐 Authentication System: Secure user registration and login.
-
-📦 MongoDB Integration: For user, posts, comments, and disease info storage.
-
-📤 Image Upload Support: For posts and disease detection.
-
-🧠 Cloud-Based AI Models: Uses Google Gemini, OpenAI Whisper, and TensorFlow Lite.
-
-🏗️ Project Structure
-├── app.py                # Main Flask backend server
-├── static/                # Static assets (uploaded images, etc.)
-├── templates/             # Frontend HTML templates (UI files)
-├── requirements.txt       # Python dependencies
-└── README.md              # (This file)
-🧠 Tech Stack
-Backend: Python, Flask, Flask-CORS
-
-Frontend: HTML, CSS (Static Templates)
-
-Database: MongoDB (NoSQL)
-
-AI Services:
-
-Google Gemini AI (Chat & Image Analysis)
-
-OpenAI Whisper (Audio Transcription)
-
-TensorFlow Lite (Local ML)
-
-Cloud APIs:
-
-OpenWeatherMap (Weather Data)
-
-Google Translate (Language Support)
-
+---
+## Tech Stack
+- **Frontend**   : HTML5, TailwindCSS.
+- **Database**   : MongoDB Atlas (NoSQL).
+- **AI Models**  : Google Gemini API (Consultant AI), OpenAI Whisper API (Speech Recognition), TensorFlow Lite (Disease Detection).
+- **APIs Used**  : OpenWeather API (Weather data).
+- **Authentication** : Flask Sessions.
+- **Cloud Storage**  : MongoDB Atlas.
