@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | Farm Assistant Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e9b30 0%, #06692e 100%);
+        }
+        .btn-hover:hover {
+            filter: brightness(110%);
+        }
+        .post-content {
+            line-height: 1.8;
+        }
+        .post-content p {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="gradient-bg text-white py-4 shadow-md">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-10 w-10 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        <h1 class="text-2xl font-bold">Farm Assistant Hub</h1>
+                    </div>
+                    <nav>
+                        <ul class="flex space-x-6">
+                            <li><a href="/" class="hover:text-green-200">Home</a></li>
+                            <li><a href="/#tools" class="hover:text-green-200">Tools</a></li>
+                            <li><a href="/community" class="hover:text-green-200">Community</a></li>
+                            <li><a href="/#about" class="hover:text-green-200">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Post Detail Section -->
+        <section class="py-12 flex-grow">
+            <div class="container mx-auto px-4">
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="mb-6 max-w-4xl mx-auto">
+                    {% for message in messages %}
+                    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-2" role="alert">
+                        <p>{{ message }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <a href="/community" class="text-green-600 hover:underline flex items-center">
+                                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                </svg>
+                                Back to Community
+                            </a>
+                        </div>
+                        
+                        <h1 class="text-3xl font-bold text-gray-800 mb-4">{{ post.title }}</h1>
+                        
+                        <div class="flex items-center text-gray-600 mb-6">
+                            <div class="flex items-center mr-6">
+                                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                <span>{{ post.username }}</span>
+                            </div>
+                            <div class="flex items-center mr-6">
+                                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>{{ post.created_at.strftime('%b %d, %Y') }}</span>
+                            </div>
+                            <div class="flex items-center mr-6">
+                                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                                </svg>
+                                <span>{{ post.category }}</span>
+                            </div>
+                        </div>
+
+                        {% if post.image_path %}
+                        <div class="mb-8">
+                            <img src="{{ url_for('static', filename=post.image_path) }}" alt="Post image" class="w-full rounded-lg">
+                        </div>
+                        {% endif %}
+
+                        <div class="post-content mb-8 text-gray-700">
+                            {{ post.content|safe }}
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-gray-200 pt-6">
+                            <div class="flex items-center">
+                                <a href="/like-post/{{ post._id }}" class="flex items-center text-gray-700 hover:text-green-600">
+                                    <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                    </svg>
+                                    <span>{{ post.likes }} Likes</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="max-w-4xl mx-auto mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Comments ({{ post.comments|length }})</h3>
+                    
+                    <!-- Comment Form -->
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">Leave a Comment</h4>
+                        
+                        {% if session.get('user_id') %}
+                        <form action="/add-comment/{{ post._id }}" method="POST">
+                            <div class="mb-4">
+                                <textarea name="content" rows="4" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    placeholder="Share your thoughts..."></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="gradient-bg text-white py-2 px-6 rounded-lg font-medium btn-hover">
+                                    Post Comment
+                                </button>
+                            </div>
+                        </form>
+                        {% else %}
+                        <div class="bg-gray-100 p-4 rounded-lg text-gray-700 text-center">
+                            <p>Please <a href="/login" class="text-green-600 hover:underline">log in</a> to comment.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Comments List -->
+                    {% if post.comments %}
+                    <div class="space-y-6">
+                        {% for comment in post.comments %}
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="flex items-center flex-grow">
+                                    <svg class="h-10 w-10 text-gray-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <div>
+                                        <h5 class="font-bold">{{ comment.username }}</h5>
+                                        <span class="text-sm text-gray-500">{{ comment.created_at.strftime('%b %d, %Y at %I:%M %p') }}</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-gray-600">{{ comment.likes }} Likes</span>
+                                </div>
+                            </div>
+                            <div class="text-gray-700">
+                                {{ comment.content }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="bg-white rounded-xl shadow-sm p-6 text-center text-gray-600">
+                        <p>No comments yet. Be the first to comment!</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="gradient-bg text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center">
+                            <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                            <span class="text-xl font-bold">Farm Assistant Hub</span>
+                        </div>
+                    </div>
+                    <div class="text-sm opacity-75">
+                        © 2025 Farm Assistant Hub. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

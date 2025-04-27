@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Farm Assistant Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e9b30 0%, #06692e 100%);
+        }
+        .btn-hover:hover {
+            filter: brightness(110%);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="gradient-bg text-white py-4 shadow-md">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-10 w-10 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        <h1 class="text-2xl font-bold">Farm Assistant Hub</h1>
+                    </div>
+                    <nav>
+                        <ul class="flex space-x-6">
+                            <li><a href="/" class="hover:text-green-200">Home</a></li>
+                            <li><a href="/#tools" class="hover:text-green-200">Tools</a></li>
+                            <li><a href="/community" class="hover:text-green-200">Community</a></li>
+                            <li><a href="/#about" class="hover:text-green-200">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Login Form Section -->
+        <section class="py-16 flex-grow flex items-center justify-center">
+            <div class="container mx-auto px-4">
+                <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-8">
+                        <div class="text-center mb-8">
+                            <h2 class="text-3xl font-bold text-gray-800">Login</h2>
+                            <p class="text-gray-600 mt-2">Access your Farm Assistant account</p>
+                        </div>
+
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="mb-6">
+                            {% for message in messages %}
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-2" role="alert">
+                                <p>{{ message }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+
+                        <form method="POST" action="/login">
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    placeholder="you@example.com">
+                            </div>
+                            <div class="mb-6">
+                                <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Password</label>
+                                <input type="password" id="password" name="password" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    placeholder="••••••••">
+                            </div>
+                            <div class="mb-6">
+                                <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg font-medium btn-hover">
+                                    Sign In
+                                </button>
+                            </div>
+                            <div class="text-center text-gray-600">
+                                <p>Don't have an account? <a href="/register" class="text-green-600 hover:underline">Register here</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="gradient-bg text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center">
+                            <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                            <span class="text-xl font-bold">Farm Assistant Hub</span>
+                        </div>
+                    </div>
+                    <div class="text-sm opacity-75">
+                        © 2025 Farm Assistant Hub. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

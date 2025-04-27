@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Assistant Hub | Crop Health Monitor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e9b30 0%, #06692e 100%);
+        }
+        .btn-hover:hover {
+            filter: brightness(110%);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Header - From Disease Detection Page -->
+        <header class="gradient-bg text-white py-4 shadow-md">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-10 w-10 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        <a href="/" class="text-2xl font-bold">Farm Assistant Hub</a>
+                    </div>
+                    <nav>
+                        <ul class="flex space-x-6">
+                            <li><a href="/" class="hover:text-green-200">Home</a></li>
+                            <li><a href="/#tools" class="hover:text-green-200">Tools</a></li>
+                            <li><a href="/#about" class="hover:text-green-200">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow py-10">
+            <div class="container mx-auto px-4">
+                <!-- Page Title -->
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Crop Risk Intelligence</h1>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Monitor potential disease risks for your crops based on location, crop type, and current weather conditions.
+                    </p>
+                </div>
+
+                <!-- Risk Analysis Section -->
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-sm mb-10">
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-6">
+                        <div class="md:w-1/3">
+                            <label for="citySelect" class="block text-gray-700 text-sm font-medium mb-2">Location</label>
+                            <select id="citySelect" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                <optgroup label="North India">
+                                    <option value="New Delhi">New Delhi</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Lucknow">Lucknow</option>
+                                    <option value="Jaipur">Jaipur</option>
+                                </optgroup>
+                                <optgroup label="South India">
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                </optgroup>
+                                <optgroup label="West India">
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Ahmedabad">Ahmedabad</option>
+                                    <option value="Pune">Pune</option>
+                                </optgroup>
+                                <optgroup label="East India">
+                                    <option value="Kolkata">Kolkata</option>
+                                    <option value="Bhubaneswar">Bhubaneswar</option>
+                                    <option value="Patna">Patna</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="md:w-1/3">
+                            <label for="cropSelect" class="block text-gray-700 text-sm font-medium mb-2">Crop Type</label>
+                            <select id="cropSelect" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                <option value="rice">Rice (चावल)</option>
+                                <option value="wheat">Wheat (गेहूं)</option>
+                                <option value="cotton">Cotton (कपास)</option>
+                                <option value="sugarcane">Sugarcane (गन्ना)</option>
+                                <option value="soybean">Soybean (सोयाबीन)</option>
+                            </select>
+                        </div>
+
+                        <div class="md:w-1/3">
+                            <label class="block text-gray-700 text-sm font-medium mb-2">Analyze</label>
+                            <button 
+                                id="analyzeButton"
+                                class="w-full gradient-bg text-white p-3 rounded-lg hover:bg-green-600 transition btn-hover flex items-center justify-center"
+                            >
+                                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                Analyze Risk
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div id="loading-spinner" class="flex flex-col items-center py-10 hidden">
+                        <div class="spinner mb-4 w-10 h-10 border-4 border-green-200 rounded-full border-t-green-600 animate-spin"></div>
+                        <p class="text-gray-600">Analyzing risk factors...</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="riskResultContainer" class="max-w-4xl mx-auto hidden">
+                    <div class="bg-white overflow-hidden rounded-xl shadow-sm mb-10">
+                        <div class="gradient-bg text-white py-4 px-6">
+                            <h2 class="text-2xl font-bold">Risk Assessment Results</h2>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                                    <div class="bg-gray-50 p-6 rounded-lg">
+                                        <h3 class="text-xl font-bold mb-4 text-center" id="riskLevelTitle">Risk Assessment</h3>
+                                        <div id="riskLevelIcon" class="text-center text-6xl mb-4"></div>
+                                        <p id="riskMessage" class="text-center font-semibold"></p>
+                                        <p id="recommendation" class="text-center text-sm mt-4 text-gray-600"></p>
+                                    </div>
+                                </div>
+                                <div class="md:w-1/2">
+                                    <h3 class="text-lg font-semibold mb-3">Environmental Metrics</h3>
+                                    <div class="bg-gray-50 p-4 rounded-lg h-64">
+                                        <canvas id="riskMetricsChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-10">
+                        <button id="analyzeNew" class="gradient-bg text-white py-3 px-8 rounded-full font-medium text-lg inline-block btn-hover">
+                            Analyze Another Crop
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer - From Disease Detection Page -->
+        <footer class="gradient-bg text-white py-8 mt-auto">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center">
+                            <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                            <span class="text-xl font-bold">Farm Assistant Hub</span>
+                        </div>
+                    </div>
+                    <div class="text-sm opacity-75">
+                        © 2025 Farm Assistant Hub. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const analyzeButton = document.getElementById('analyzeButton');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const riskResultContainer = document.getElementById('riskResultContainer');
+            const riskLevelTitle = document.getElementById('riskLevelTitle');
+            const riskLevelIcon = document.getElementById('riskLevelIcon');
+            const riskMessage = document.getElementById('riskMessage');
+            const recommendation = document.getElementById('recommendation');
+            const analyzeNew = document.getElementById('analyzeNew');
+            
+            let riskChart = null;
+
+            // Event: Analyze risk
+            analyzeButton.addEventListener('click', function() {
+                const city = document.getElementById('citySelect').value;
+                const crop = document.getElementById('cropSelect').value;
+                
+                // Show loading spinner
+                loadingSpinner.classList.remove('hidden');
+                
+                // Simulate API call with setTimeout (replace with actual fetch when backend is ready)
+                setTimeout(() => {
+                    loadingSpinner.classList.add('hidden');
+                    riskResultContainer.classList.remove('hidden');
+                    
+                    // Mock data (replace with actual API response)
+                    const data = {
+                        risk_level: ['Low', 'Moderate', 'High'][Math.floor(Math.random() * 3)],
+                        risk_message: `Based on current weather conditions in ${city}, ${crop} has a ${['low', 'moderate', 'high'][Math.floor(Math.random() * 3)]} risk of disease.`,
+                        recommendation: `Monitor your crops regularly and consider preventative measures if conditions worsen.`,
+                        detailed_metrics: {
+                            temperature: Math.floor(Math.random() * 35) + 10,
+                            humidity: Math.floor(Math.random() * 100),
+                            precipitation_chance: Math.floor(Math.random() * 100)
+                        }
+                    };
+                    
+                    // Update Risk Level Display
+                    riskLevelTitle.textContent = `${data.risk_level} Risk for ${crop.charAt(0).toUpperCase() + crop.slice(1)}`;
+                    riskMessage.textContent = data.risk_message;
+                    recommendation.textContent = data.recommendation;
+                    
+                    // Set icon based on risk level
+                    if (data.risk_level === 'High') {
+                        riskLevelIcon.innerHTML = '<svg class="h-16 w-16 mx-auto text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>';
+                    } else if (data.risk_level === 'Moderate') {
+                        riskLevelIcon.innerHTML = '<svg class="h-16 w-16 mx-auto text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>';
+                    } else {
+                        riskLevelIcon.innerHTML = '<svg class="h-16 w-16 mx-auto text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>';
+                    }
+                    
+                    // Create/update chart
+                    if (riskChart) riskChart.destroy();
+                    
+                    const ctx = document.getElementById('riskMetricsChart').getContext('2d');
+                    riskChart = new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: ['Temperature (°C)', 'Humidity (%)', 'Precipitation (%)'],
+                            datasets: [{
+                                label: 'Current Conditions',
+                                data: [
+                                    data.detailed_metrics.temperature,
+                                    data.detailed_metrics.humidity,
+                                    data.detailed_metrics.precipitation_chance
+                                ],
+                                backgroundColor: 'rgba(30, 155, 48, 0.2)',
+                                borderColor: 'rgba(30, 155, 48, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(30, 155, 48, 1)',
+                                pointRadius: 4
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    angleLines: {
+                                        display: true
+                                    },
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }
+                        }
+                    });
+                }, 1500); // Simulating API delay
+            });
+            
+            // Event: Analyze new crop
+            analyzeNew.addEventListener('click', function() {
+                riskResultContainer.classList.add('hidden');
+                if (riskChart) riskChart.destroy();
+            });
+        });
+    </script>
+</body>
+</html>

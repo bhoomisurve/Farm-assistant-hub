@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Assistant Hub | Agricultural AI Tools</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e9b30 0%, #06692e 100%);
+        }
+        .btn-hover:hover {
+            filter: brightness(110%);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="gradient-bg text-white py-4 shadow-md">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-10 w-10 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        <h1 class="text-2xl font-bold">Farm Assistant Hub</h1>
+                    </div>
+                    <nav>
+                        <ul class="flex space-x-6">
+                            <li><a href="#" class="hover:text-green-200">Home</a></li>
+                            <li><a href="#tools" class="hover:text-green-200">Tools</a></li>
+                            <li><a href="/community" class="hover:text-green-200">Community</a></li>
+                            <li><a href="#about" class="hover:text-green-200">About</a></li>
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="py-12 md:py-20 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Smart Farming Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                    Access intelligent agricultural tools powered by AI to improve your farming outcomes and sustainability.
+                </p>
+                <a href="#tools" class="gradient-bg text-white py-3 px-8 rounded-full font-medium text-lg inline-block btn-hover">
+                    Explore Our Tools
+                </a>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Agricultural Tools</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Crop Disease Risk Card -->
+                    <div class="card bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="static\images\1.jpg" alt="Crop disease assessment" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Indian Crop Disease Risk</h3>
+                            <p class="text-gray-600 mb-6">
+                                Assess disease risks for various crops based on real-time weather data across Indian regions.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Weather Analysis</span>
+                                </div>
+                                <a href="/crop-risk" class="gradient-bg text-white py-2 px-5 rounded-lg font-medium btn-hover">
+                                    Open Tool
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Farm Consultant Card -->
+                    <div class="card bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="static\images\chat.jpg" alt="AI farm consultant" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">AI Farm Consultant</h3>
+                            <p class="text-gray-600 mb-6">
+                                Chat with Plantie, your AI farming assistant. Get personalized crop recommendations and farming advice.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Smart Assistant</span>
+                                </div>
+                                <a href="/translator" class="gradient-bg text-white py-2 px-5 rounded-lg font-medium btn-hover">
+                                    Open Tool
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="static\images\dete.jpg" alt="Crop disease detection" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Smart Disease Detection</h3>
+                            <p class="text-gray-600 mb-6">
+                                Upload images of your crops to instantly identify diseases and get detailed treatment recommendations.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Image Analysis</span>
+                                </div>
+                                <a href="/disease-detection" class="gradient-bg text-white py-2 px-5 rounded-lg font-medium btn-hover">
+                                    Open Tool
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">About Our Platform</h2>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <p class="text-gray-600 mb-6">
+                        Farm Assistant Hub combines cutting-edge AI technology with agricultural expertise to provide farmers with intelligent tools that help improve crop yields, reduce disease risks, and implement sustainable farming practices.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Our platform leverages weather data, agricultural research, and machine learning to deliver personalized recommendations and insights specifically tailored to Indian farming conditions.
+                    </p>
+                    
+                    <!-- Community Section Addition -->
+                    <div class="border-t border-gray-200 pt-6 mt-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Join Our Farming Community</h3>
+                        <p class="text-gray-600 mb-4">
+                            Connect with fellow farmers, share your experiences, and learn from agricultural experts in our vibrant online community. Get advice, share success stories, and stay updated with the latest farming techniques.
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <ul class="text-gray-700">
+                                <li class="flex items-center mb-2">
+                                    <svg class="h-5 w-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                    </svg>
+                                    <span>Discussion forums on crop-specific topics</span>
+                                </li>
+                                <li class="flex items-center mb-2">
+                                    <svg class="h-5 w-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                    <span>Connect with expert farmers and agricultural scientists</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    </svg>
+                                    <span>Share your farming success stories and challenges</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-4">
+                            <a href="/community" class="gradient-bg text-white py-2 px-6 rounded-lg font-medium inline-block btn-hover">
+                                Join Community
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 mt-8">
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>AI-Powered Analysis</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Multi-language Support</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Real-time Weather Data</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Image-Based Disease Detection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="gradient-bg text-white py-8 mt-auto">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center">
+                            <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                            <span class="text-xl font-bold">Farm Assistant Hub</span>
+                        </div>
+                    </div>
+                    <div class="text-sm opacity-75">
+                        © 2025 Farm Assistant Hub. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
