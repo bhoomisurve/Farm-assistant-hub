@@ -27,7 +27,7 @@ from flask import redirect, url_for, session, flash
 import certifi
 
 try:
-    mongo_uri = " "
+    mongo_uri = "MONGO_URI"
     client = MongoClient(mongo_uri, tls=True, tlsAllowInvalidCertificates=False, tlsCAFile=certifi.where())
     serverSelectionTimeoutMS=60000,  # Wait up to 60 seconds for a server to be found
     connectTimeoutMS=60000,          # Wait up to 60 seconds when establishing the connection
@@ -52,9 +52,9 @@ UPLOAD_FOLDER = Path('static/uploads')
 UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
 
 # Configure API keys
-genai.configure(api_key=" ")
-openai.api_key = " "
-weather_api_key = ' '
+genai.configure(api_key="GEMINI_API_KEY")
+openai.api_key = "OPENAI_API_KEY"
+weather_api_key = 'WEATHER_API_KEY'
 
 # Initialize Flask app
 app = Flask(__name__)
