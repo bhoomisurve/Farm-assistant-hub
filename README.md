@@ -20,6 +20,7 @@ This repository includes both the **backend (Flask API)** and **frontend (HTML/C
 ---
 ## Tech Stack
 - **Frontend**   : HTML5, TailwindCSS.
+- **Backend**    : Python(Flask).
 - **Database**   : MongoDB Atlas (NoSQL).
 - **AI Models**  : Google Gemini API (Consultant AI), OpenAI Whisper API (Speech Recognition), TensorFlow Lite (Disease Detection).
 - **APIs Used**  : OpenWeather API (Weather data).
