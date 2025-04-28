@@ -26,3 +26,8 @@ This repository includes both the **backend (Flask API)** and **frontend (HTML/C
 - **APIs Used**  : OpenWeather API (Weather data).
 - **Authentication** : Flask Sessions.
 - **Cloud Storage**  : MongoDB Atlas.
+
+---
+## Results
+(static/images/ui.jpg)
+
