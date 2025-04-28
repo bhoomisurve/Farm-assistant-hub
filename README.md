@@ -28,6 +28,7 @@ This repository includes both the **backend (Flask API)** and **frontend (HTML/C
 - **Cloud Storage**  : MongoDB Atlas.
 
 ---
-## Results
-static/images/ui.jpg
+## Screenshots
+![ UI](static/images/ui.jpg) 
+![Community UI](static/images/ui2.jpg) 
 
