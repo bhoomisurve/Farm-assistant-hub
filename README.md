@@ -29,5 +29,5 @@ This repository includes both the **backend (Flask API)** and **frontend (HTML/C
 
 ---
 ## Results
-(static/images/ui.jpg)
+static/images/ui.jpg
 
